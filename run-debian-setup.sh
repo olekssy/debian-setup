@@ -35,14 +35,14 @@ install_ohmyzsh() {
 }
 
 get_configs() {
-    wget https://bit.ly/38XL9mZ -P ~/.
-    wget https://bit.ly/3Eua0uf -P ~/.
+    wget https://bit.ly/38XL9mZ -P /home/lialka/
+    wget https://bit.ly/3Eua0uf -P /home/lialka/
     echo "Installed zsh and vim configs."
 }
 
 get_wallpaper() {
-    wget https://github.com/lialkaas/debian-setup/blob/main/logo-fox.png?raw=true -P ~/Pictures/
-    wget https://github.com/lialkaas/debian-setup/blob/main/wallpaper-gold.jpg?raw=true -P ~/Pictures/
+    wget https://github.com/lialkaas/debian-setup/blob/main/logo-fox.png?raw=true -P /home/lialka/Pictures/
+    wget https://github.com/lialkaas/debian-setup/blob/main/wallpaper-gold.jpg?raw=true -P /home/lialka/Pictures/
 }
 
 # Main script
