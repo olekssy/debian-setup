@@ -14,7 +14,7 @@ https://gitlab.com/defcronyke/debian-post-install
 
 ## Run
 
-The url gets the main script from the repo.
+The url points to the main script `run-debian-setup.sh` 
 
 ```shell
 su - -c 'apt update && apt install -y wget' && \
