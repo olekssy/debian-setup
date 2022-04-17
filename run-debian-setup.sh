@@ -19,7 +19,7 @@ custom_setup()
 
 install_vscode()
 {
-    su - -c 'sudo apt-get install -y wget gpg && \
+    su - -c 'sudo apt install -y gpg && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && \
     install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/ && \
     echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && \
@@ -30,8 +30,13 @@ install_vscode()
     echo "Installed VScode."
 }
 
+install_ohmyzsh() {
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+}
+
 # Main script
 remote_setup
 custom_setup
 install_vscode
+install_ohmyzsh
 echo "Complete Debian setup. Logout to enable sudo support."
