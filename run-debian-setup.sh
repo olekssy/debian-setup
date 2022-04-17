@@ -40,10 +40,16 @@ get_configs() {
     echo "Installed zsh and vim configs."
 }
 
+get_wallpaper() {
+    wget https://github.com/lialkaas/debian-setup/blob/main/logo-fox.png?raw=true -P ~/Pictures/
+    wget https://github.com/lialkaas/debian-setup/blob/main/wallpaper-gold.jpg?raw=true -P ~/Pictures/
+}
+
 # Main script
 remote_setup
 custom_setup
 install_vscode
 install_ohmyzsh
 get_configs
+get_wallpaper
 echo "Complete Debian setup. Logout to enable sudo support."

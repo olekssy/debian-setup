@@ -11,6 +11,7 @@ https://gitlab.com/defcronyke/debian-post-install
 * installs VScode.
 * installs oh-my-zsh
 * sets `vimrc` and `zshrc`
+* downloads wallpaper
 
 ## Run
 
