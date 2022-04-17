@@ -34,9 +34,16 @@ install_ohmyzsh() {
     sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 }
 
+get_configs() {
+    wget https://bit.ly/38XL9mZ -P ~/.
+    wget https://bit.ly/3Eua0uf -P ~/.
+    echo "Installed zsh and vim configs."
+}
+
 # Main script
 remote_setup
 custom_setup
 install_vscode
 install_ohmyzsh
+get_configs
 echo "Complete Debian setup. Logout to enable sudo support."
