@@ -9,11 +9,29 @@ remote_setup()
 
 custom_setup()
 {
-    su - -c 'apt remove -y gnome-games xterm rhythmbox evolution && \
-    apt autoremove -y; \
-    apt install -y build-essential dkms linux-headers-$(uname -r) && \
-    apt install -y curl rsync cmus vlc thunderbird calibre htop; \
-    apt install -y  klavaro vim zsh gnome-boxes git'
+    su - -c ' \
+        apt remove -y \
+            gnome-games \
+            xterm \
+            rhythmbox \
+            evolution && \
+        apt autoremove -y; \
+        apt install -y \
+            build-essential \
+            dkms \
+            linux-headers-$(uname -r) \
+            curl \
+            rsync \
+            cmus \
+            vlc \
+            thunderbird \
+            calibre \
+            htop \
+            klavaro \
+            vim \
+            zsh \
+            gnome-boxes \
+            git'
     echo "Complete custom post-install setup."
 }
 
@@ -35,14 +53,28 @@ install_ohmyzsh() {
 }
 
 get_configs() {
-    wget https://bit.ly/38XL9mZ -P /home/lialka/
-    wget https://bit.ly/3Eua0uf -P /home/lialka/
+    wget -O /home/lialka/.vimrc https://bit.ly/38XL9mZ
+    wget -O /home/lialka/.zshrc https://bit.ly/3Eua0uf
     echo "Installed zsh and vim configs."
 }
 
 get_wallpaper() {
-    wget https://github.com/lialkaas/debian-setup/blob/main/logo-fox.png?raw=true -P /home/lialka/Pictures/
-    wget https://github.com/lialkaas/debian-setup/blob/main/wallpaper-gold.jpg?raw=true -P /home/lialka/Pictures/
+    wget -O /home/lialka/Pictures/logo-fox.png https://github.com/lialkaas/debian-setup/blob/main/logo-fox.png?raw=true
+    wget -O /home/lialka/Pictures/wallpaper-gold.jpg https://github.com/lialkaas/debian-setup/blob/main/wallpaper-gold.jpg?raw=true
+    echo "Downloaded wallpaper to ~/Pictures"
+}
+
+install_wine() {
+    su - -c ' \
+        dpkg --add-architecture i386 && apt update -y && \
+        apt install -y \
+            wine \
+            wine32 \
+            wine64 \
+            libwine \
+            libwine:i386 \
+            fonts-wine'
+    echo "Installed Wine."
 }
 
 # Main script
@@ -52,4 +84,5 @@ install_vscode
 install_ohmyzsh
 get_configs
 get_wallpaper
+install_wine
 echo "Complete Debian setup. Logout to enable sudo support."
