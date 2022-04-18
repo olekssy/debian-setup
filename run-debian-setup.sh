@@ -31,6 +31,7 @@ custom_setup()
             vim \
             zsh \
             gnome-boxes \
+            texlive \
             git'
     echo "Complete custom post-install setup."
 }
