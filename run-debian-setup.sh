@@ -32,6 +32,8 @@ custom_setup()
             zsh \
             gnome-boxes \
             texlive \
+            aptitude \
+            timeshift \
             git'
     echo "Complete custom post-install setup."
 }
