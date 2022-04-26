@@ -21,7 +21,6 @@ custom_setup()
             dkms \
             linux-headers-$(uname -r) \
             curl \
-            rsync \
             cmus \
             vlc \
             thunderbird \
@@ -34,6 +33,7 @@ custom_setup()
             texlive \
             aptitude \
             timeshift \
+            obs-studio \
             git'
     echo "Complete custom post-install setup."
 }
@@ -80,6 +80,12 @@ install_wine() {
     echo "Installed Wine."
 }
 
+fix_trackpoint() {
+    su - -c 'echo  'ACTION=="add",SUBSYSTEM=="input",ATTR{name}=="TPPS/2 IBM TrackPoint",ATTR{device/drift_time}="25"'  > /etc/udev/rules.d/10-trackpoint.rules'
+    echo "Fixed trackpoint drift."
+}
+
+
 # Main script
 remote_setup
 custom_setup
@@ -88,4 +94,5 @@ install_ohmyzsh
 get_configs
 get_wallpaper
 install_wine
+fix_trackpoint
 echo "Complete Debian setup. Logout to enable sudo support."
