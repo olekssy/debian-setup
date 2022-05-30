@@ -30,11 +30,11 @@ custom_setup()
             vim \
             zsh \
             gnome-boxes \
-            texlive \
             aptitude \
             timeshift \
             obs-studio \
-            git'
+            git; \
+        apt install texlive latexmk texlive-latex-extra --no-install-recommends'
     echo "Complete custom post-install setup."
 }
 
